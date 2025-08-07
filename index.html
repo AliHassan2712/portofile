@@ -477,36 +477,41 @@
                 </p>
               </div>
 
-              <form action="" class="contact-form" data-reveal="right">
-                <div class="input-wrapper">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Name *"
-                    required
-                    class="input-field"
-                  />
+          <form action="" class="contact-form" data-reveal="right" novalidate>
+  <div class="input-wrapper">
+    <div>
+      <input
+        type="text"
+        name="name"
+        placeholder="Name *"
+        class="input-field"
+      />
+      <div class="error-message"></div>
+    </div>
 
-                  <input
-                    type="email"
-                    name="email_address"
-                    placeholder="Email *"
-                    required
-                    class="input-field"
-                  />
-                </div>
+    <div>
+      <input
+        type="email"
+        name="email_address"
+        placeholder="Email *"
+        class="input-field"
+      />
+      <div class="error-message"></div>
+    </div>
+  </div>
 
-                <textarea
-                  name="message"
-                  placeholder="Message *"
-                  required
-                  class="input-field"
-                ></textarea>
+  <div>
+    <textarea
+      name="message"
+      placeholder="Message *"
+      class="input-field"
+    ></textarea>
+    <div class="error-message"></div>
+  </div>
 
-                <button type="submit" class="btn btn-secondary">
-                  Send message
-                </button>
-              </form>
+  <button type="submit" class="btn btn-secondary">Send message</button>
+</form>
+
             </div>
           </div>
         </section>
@@ -526,11 +531,6 @@
           <li>
             <a href="#" class="social-link"
               ><ion-icon name="logo-facebook"></ion-icon
-            ></a>
-          </li>
-          <li>
-            <a href="#" class="social-link"
-              ><ion-icon name="logo-dribbble"></ion-icon
             ></a>
           </li>
           <li>

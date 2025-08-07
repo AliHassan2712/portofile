@@ -61,3 +61,53 @@ function animateProgress() {
 
 window.addEventListener('scroll', animateProgress);
 window.addEventListener('load', animateProgress);
+
+
+//Validation for contact form
+const contactForm = document.querySelector(".contact-form");
+
+const validateForm = (event) => {
+  event.preventDefault();
+
+  const nameInput = contactForm.querySelector('input[name="name"]');
+  const emailInput = contactForm.querySelector('input[name="email_address"]');
+  const messageInput = contactForm.querySelector('textarea[name="message"]');
+
+  const nameError = nameInput.nextElementSibling;
+  const emailError = emailInput.nextElementSibling;
+  const messageError = messageInput.nextElementSibling;
+
+  let isValid = true;
+
+  // Clear previous errors
+  [nameError, emailError, messageError].forEach((el) => {
+    el.textContent = "";
+    el.style.display = "none";
+  });
+
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/i;
+
+  if (nameInput.value.trim() === "") {
+    nameError.textContent = "Please enter your name.";
+    nameError.style.display = "block";
+    isValid = false;
+  }
+
+  if (!emailPattern.test(emailInput.value.trim())) {
+    emailError.textContent = "Please enter a valid email.";
+    emailError.style.display = "block";
+    isValid = false;
+  }
+
+  if (messageInput.value.trim() === "") {
+    messageError.textContent = "Please enter your message.";
+    messageError.style.display = "block";
+    isValid = false;
+  }
+
+  if (isValid) {
+    contactForm.submit(); // Form is valid, proceed to submit
+  }
+};
+
+contactForm.addEventListener("submit", validateForm);
